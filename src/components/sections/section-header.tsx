@@ -1,4 +1,5 @@
 import { Badge } from "@/components/ui/badge";
+import { RevealText } from "@/components/motion/reveal-text";
 import { cn } from "@/lib/utils";
 
 type SectionHeaderProps = {
@@ -31,14 +32,25 @@ export function SectionHeader({
           {eyebrow}
         </Badge>
       ) : null}
-      <h2
+
+      <div
         className={cn(
-          "font-display text-3xl font-semibold tracking-tight sm:text-4xl lg:text-5xl",
-          dark ? "text-white" : "text-brand-black",
+          "border-t pt-5",
+          dark ? "border-[color:var(--hairline-dark)]" : "border-[color:var(--hairline)]",
+          align === "center" && "mx-auto max-w-fit",
         )}
       >
-        {title}
-      </h2>
+        <RevealText
+          as="h2"
+          className={cn(
+            "font-display text-3xl font-bold sm:text-4xl lg:text-5xl",
+            dark ? "text-white" : "text-ink",
+          )}
+        >
+          {title}
+        </RevealText>
+      </div>
+
       {description ? (
         <p
           className={cn(

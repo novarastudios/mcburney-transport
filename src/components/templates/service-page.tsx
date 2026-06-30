@@ -3,6 +3,7 @@ import { CheckCircle2 } from "lucide-react";
 import type { ServiceContent } from "@/lib/content/services";
 import { Hero } from "@/components/sections/hero";
 import { Breadcrumbs } from "@/components/layout/breadcrumbs";
+import { SectionBand } from "@/components/layout/section-band";
 import { SectionHeader } from "@/components/sections/section-header";
 import { StatisticsDark } from "@/components/sections/statistics";
 import { FAQs } from "@/components/sections/faqs";
@@ -50,7 +51,7 @@ export function ServicePageTemplate({ service }: { service: ServiceContent }) {
       />
       <Breadcrumbs items={breadcrumbs} />
 
-      <section className="py-20 lg:py-28">
+      <SectionBand tone="paper" size="lg">
         <div className="mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-2 lg:px-8">
           <ScrollReveal>
             <SectionHeader
@@ -60,7 +61,7 @@ export function ServicePageTemplate({ service }: { service: ServiceContent }) {
             />
           </ScrollReveal>
           <ScrollReveal delay={0.1}>
-            <div className="relative aspect-[4/3] overflow-hidden rounded-3xl">
+            <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-[color:var(--hairline)]">
               <Image
                 src={service.image}
                 alt={service.title}
@@ -71,9 +72,9 @@ export function ServicePageTemplate({ service }: { service: ServiceContent }) {
             </div>
           </ScrollReveal>
         </div>
-      </section>
+      </SectionBand>
 
-      <section className="bg-brand-surface py-20 lg:py-28">
+      <SectionBand tone="paper-2" size="lg">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid gap-12 lg:grid-cols-2">
             <ScrollReveal>
@@ -85,7 +86,7 @@ export function ServicePageTemplate({ service }: { service: ServiceContent }) {
               <ul className="mt-8 space-y-4">
                 {service.problems.map((problem) => (
                   <li key={problem} className="flex gap-3 text-sm leading-relaxed text-brand-muted">
-                    <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-brand-yellow" />
+                    <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-ink" />
                     {problem}
                   </li>
                 ))}
@@ -100,7 +101,7 @@ export function ServicePageTemplate({ service }: { service: ServiceContent }) {
               <ul className="mt-8 space-y-4">
                 {service.benefits.map((benefit) => (
                   <li key={benefit} className="flex gap-3 text-sm leading-relaxed text-brand-muted">
-                    <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-brand-yellow" />
+                    <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-ink" />
                     {benefit}
                   </li>
                 ))}
@@ -108,9 +109,9 @@ export function ServicePageTemplate({ service }: { service: ServiceContent }) {
             </ScrollReveal>
           </div>
         </div>
-      </section>
+      </SectionBand>
 
-      <section className="py-20 lg:py-28">
+      <SectionBand tone="paper" size="md">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <SectionHeader
             eyebrow="Process"
@@ -121,11 +122,11 @@ export function ServicePageTemplate({ service }: { service: ServiceContent }) {
           <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
             {service.process.map((step, index) => (
               <ScrollReveal key={step.title} delay={index * 0.06}>
-                <article className="h-full rounded-3xl border border-brand-black/10 bg-white p-6">
-                  <p className="font-display text-sm font-semibold text-brand-yellow">
+                <article className="h-full rounded-2xl border border-[color:var(--hairline)] bg-white p-6">
+                  <p className="font-display text-sm font-semibold text-brand-muted">
                     Step {index + 1}
                   </p>
-                  <h3 className="mt-3 font-display text-lg font-semibold text-brand-black">
+                  <h3 className="mt-3 font-display text-lg font-semibold text-ink">
                     {step.title}
                   </h3>
                   <p className="mt-3 text-sm leading-relaxed text-brand-muted">
@@ -136,11 +137,11 @@ export function ServicePageTemplate({ service }: { service: ServiceContent }) {
             ))}
           </div>
         </div>
-      </section>
+      </SectionBand>
 
       <StatisticsDark stats={service.stats} />
 
-      <section className="py-20 lg:py-28">
+      <SectionBand tone="paper-2" size="lg">
         <div className="mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-[1fr_1.2fr] lg:px-8">
           <SectionHeader
             eyebrow="FAQ"
@@ -149,7 +150,7 @@ export function ServicePageTemplate({ service }: { service: ServiceContent }) {
           />
           <FAQs items={service.faqs} />
         </div>
-      </section>
+      </SectionBand>
 
       <CallToAction
         title={`Ready to discuss ${service.title.toLowerCase()}?`}

@@ -1,4 +1,5 @@
-import { ScrollReveal } from "@/components/motion/scroll-reveal";
+import { NumberTicker } from "@/components/motion/number-ticker";
+import { cn } from "@/lib/utils";
 
 type Stat = {
   value: string;
@@ -6,25 +7,62 @@ type Stat = {
   detail?: string;
 };
 
+function StatItem({
+  stat,
+  index,
+  dark = false,
+}: {
+  stat: Stat;
+  index: number;
+  dark?: boolean;
+}) {
+  return (
+    <div
+      className={cn(
+        "flex min-w-0 flex-1 flex-col justify-center px-6 py-8 lg:px-10 lg:py-10",
+        index > 0 && "border-t lg:border-t-0 lg:border-l",
+        dark ? "border-[color:var(--hairline-dark)]" : "border-[color:var(--hairline)]",
+      )}
+    >
+      <p
+        className={cn(
+          "text-xs font-medium uppercase tracking-[0.18em]",
+          dark ? "text-white/55" : "text-brand-muted",
+        )}
+      >
+        {stat.label}
+      </p>
+      <p
+        className={cn(
+          "mt-3 font-display text-6xl font-bold leading-none lg:text-7xl",
+          dark ? "text-mcb-yellow" : "text-ink",
+        )}
+      >
+        <NumberTicker value={stat.value} />
+      </p>
+      {stat.detail ? (
+        <p
+          className={cn(
+            "mt-4 max-w-xs text-sm leading-relaxed",
+            dark ? "text-white/60" : "text-brand-muted",
+          )}
+        >
+          {stat.detail}
+        </p>
+      ) : null}
+    </div>
+  );
+}
+
 export function Statistics({ stats }: { stats: readonly Stat[] }) {
   return (
-    <section className="border-y border-brand-black/10 bg-white py-16 lg:py-20">
-      <div className="mx-auto grid max-w-7xl gap-8 px-6 sm:grid-cols-2 lg:grid-cols-4 lg:px-8">
-        {stats.map((stat, index) => (
-          <ScrollReveal key={stat.label} delay={index * 0.08}>
-            <div className="space-y-2">
-              <p className="font-display text-3xl font-semibold tracking-tight text-brand-black sm:text-4xl">
-                {stat.value}
-              </p>
-              <p className="text-sm font-medium text-brand-black">{stat.label}</p>
-              {stat.detail ? (
-                <p className="text-sm leading-relaxed text-brand-muted">
-                  {stat.detail}
-                </p>
-              ) : null}
-            </div>
-          </ScrollReveal>
-        ))}
+    <section className="border-y border-[color:var(--hairline)] bg-paper">
+      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <div className="flex flex-col lg:flex-row">
+          {stats.map((stat, index) => (
+            <StatItem key={stat.label} stat={stat} index={index} />
+          ))}
+        </div>
       </div>
     </section>
   );
@@ -32,18 +70,13 @@ export function Statistics({ stats }: { stats: readonly Stat[] }) {
 
 export function StatisticsDark({ stats }: { stats: readonly Stat[] }) {
   return (
-    <section className="bg-brand-charcoal py-16 text-white lg:py-20">
-      <div className="mx-auto grid max-w-7xl gap-8 px-6 sm:grid-cols-2 lg:grid-cols-4 lg:px-8">
-        {stats.map((stat, index) => (
-          <ScrollReveal key={stat.label} delay={index * 0.08}>
-            <div className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm">
-              <p className="font-display text-3xl font-semibold text-brand-yellow">
-                {stat.value}
-              </p>
-              <p className="mt-2 text-sm font-medium">{stat.label}</p>
-            </div>
-          </ScrollReveal>
-        ))}
+    <section className="grain bg-ink text-white">
+      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <div className="flex flex-col lg:flex-row">
+          {stats.map((stat, index) => (
+            <StatItem key={stat.label} stat={stat} index={index} dark />
+          ))}
+        </div>
       </div>
     </section>
   );

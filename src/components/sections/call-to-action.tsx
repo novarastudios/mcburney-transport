@@ -21,11 +21,11 @@ export function CallToAction({
   secondaryHref = "/contact",
 }: CTAProps) {
   return (
-    <section className="py-20 lg:py-28">
+    <section className="bg-paper py-16 lg:py-24">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <ScrollReveal>
-          <div className="relative overflow-hidden rounded-[2rem] bg-brand-black px-8 py-16 text-white lg:px-16 lg:py-20">
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,199,0,0.18),transparent_50%)]" />
+          <div className="grain relative overflow-hidden rounded-[2rem] bg-ink px-8 py-16 text-white lg:px-16 lg:py-20">
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(245,179,1,0.16),transparent_50%)]" />
             <div className="relative max-w-2xl">
               <h2 className="font-display text-3xl font-semibold tracking-tight sm:text-4xl lg:text-5xl">
                 {title}

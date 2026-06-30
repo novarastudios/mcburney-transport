@@ -4,23 +4,25 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full text-sm font-medium transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-yellow focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full text-sm font-medium transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-mcb-yellow focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
   {
     variants: {
       variant: {
         default:
-          "bg-brand-yellow text-brand-black hover:bg-brand-yellow/90 shadow-lg shadow-brand-yellow/20",
+          "bg-mcb-yellow text-ink shadow-none hover:bg-mcb-amber active:bg-mcb-amber",
         secondary:
-          "bg-white/10 text-white backdrop-blur-sm border border-white/20 hover:bg-white/15",
+          "border border-[color:var(--hairline-dark)] bg-transparent text-white hover:bg-white/5",
         outline:
-          "border border-brand-black/15 bg-transparent text-brand-black hover:bg-brand-black hover:text-white",
-        ghost: "text-brand-black hover:bg-brand-black/5",
-        dark: "bg-brand-black text-white hover:bg-brand-charcoal",
+          "border border-[color:var(--hairline)] bg-transparent text-ink hover:bg-ink hover:text-white",
+        ghost:
+          "border border-transparent bg-transparent text-ink hover:border-[color:var(--hairline)] hover:bg-white/5",
+        dark: "bg-ink text-white hover:bg-graphite",
       },
       size: {
         default: "h-11 px-6",
         sm: "h-9 px-4 text-xs",
         lg: "h-12 px-8 text-base",
+        xl: "h-14 px-10 text-base",
         icon: "h-10 w-10",
       },
     },

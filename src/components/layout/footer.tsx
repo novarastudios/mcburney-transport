@@ -3,7 +3,7 @@ import { FOOTER_LINKS, OFFICES, SITE } from "@/lib/constants";
 
 export function Footer() {
   return (
-    <footer className="border-t border-brand-black/10 bg-brand-black text-white">
+    <footer className="grain border-t border-[color:var(--hairline-dark)] bg-ink text-white">
       <div className="mx-auto max-w-7xl px-6 py-16 lg:px-8">
         <div className="grid gap-12 lg:grid-cols-5">
           <div className="lg:col-span-2">

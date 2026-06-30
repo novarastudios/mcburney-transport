@@ -3,9 +3,10 @@ import { createPageMetadata } from "@/lib/seo/metadata";
 import { Hero } from "@/components/sections/hero";
 import { Breadcrumbs } from "@/components/layout/breadcrumbs";
 import { SectionHeader } from "@/components/sections/section-header";
+import { DepotMap } from "@/components/sections/depot-map";
 import { CallToAction } from "@/components/sections/call-to-action";
 import { ScrollReveal } from "@/components/motion/scroll-reveal";
-import { DEPOTS } from "@/lib/constants";
+import { DEPOT_LOCATIONS } from "@/lib/content/depots";
 import { IMAGES } from "@/lib/content/home";
 import { breadcrumbSchema, jsonLd } from "@/lib/seo/schema";
 
@@ -39,6 +40,21 @@ export default function DepotsPage() {
         imageAlt="McBurney Transport depot"
       />
       <Breadcrumbs items={breadcrumbs} />
+
+      <section className="bg-paper py-16 lg:py-20">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <ScrollReveal>
+            <SectionHeader
+              eyebrow="Network map"
+              title="UK & Ireland depot coverage"
+              description="Eight strategic locations supporting road haulage, Irish Sea shipping, warehousing and distribution."
+              className="mb-10"
+            />
+            <DepotMap />
+          </ScrollReveal>
+        </div>
+      </section>
+
       <section className="py-20 lg:py-28">
         <div className="mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-2 lg:px-8">
           <ScrollReveal>
@@ -48,21 +64,26 @@ export default function DepotsPage() {
               description="Our depot network supports road haulage, Irish Sea shipping, warehousing and distribution — enabling efficient logistics across both markets."
             />
             <div className="mt-8 grid gap-3 sm:grid-cols-2">
-              {DEPOTS.map((depot) => (
+              {DEPOT_LOCATIONS.map((depot) => (
                 <div
-                  key={depot}
-                  className="rounded-2xl border border-brand-black/10 bg-brand-surface px-5 py-4 text-sm font-medium text-brand-black"
+                  key={depot.name}
+                  className="rounded-2xl border border-[color:var(--hairline)] bg-white px-5 py-4"
                 >
-                  {depot}
+                  <p className="text-sm font-medium text-ink">{depot.name}</p>
+                  {depot.label ? (
+                    <p className="mt-1 text-xs uppercase tracking-[0.14em] text-brand-muted">
+                      {depot.label}
+                    </p>
+                  ) : null}
                 </div>
               ))}
             </div>
           </ScrollReveal>
           <ScrollReveal delay={0.1}>
-            <div className="relative aspect-[4/3] overflow-hidden rounded-3xl">
+            <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-[color:var(--hairline)]">
               <Image
                 src="https://www.mcburneytransportgroup.com/wp-content/uploads/bfi_thumb/depotsmap-mpbef2rakcwbwe5l4veh7rwa36z8j7bkxmmrovou30.jpg"
-                alt="McBurney Transport depot map"
+                alt="McBurney Transport depot map reference"
                 fill
                 className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 50vw"
@@ -71,7 +92,8 @@ export default function DepotsPage() {
           </ScrollReveal>
         </div>
       </section>
-      <section className="bg-brand-surface py-20 lg:py-28">
+
+      <section className="bg-paper-2 py-20 lg:py-28">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid gap-4 md:grid-cols-3">
             {[
@@ -80,7 +102,7 @@ export default function DepotsPage() {
               "https://www.mcburneytransportgroup.com/wp-content/uploads/2016/04/warehouse.jpg",
             ].map((src, index) => (
               <ScrollReveal key={src} delay={index * 0.06}>
-                <div className="relative aspect-[4/3] overflow-hidden rounded-2xl">
+                <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-[color:var(--hairline)]">
                   <Image
                     src={src}
                     alt="McBurney Transport depot facility"

@@ -3,6 +3,7 @@ import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { Hero } from "@/components/sections/hero";
 import { Statistics } from "@/components/sections/statistics";
+import { Accreditations } from "@/components/sections/accreditations";
 import { SectionHeader } from "@/components/sections/section-header";
 import { FeatureCards } from "@/components/sections/feature-cards";
 import { IndustryCards } from "@/components/sections/industry-cards";
@@ -11,6 +12,7 @@ import { CaseStudies } from "@/components/sections/case-studies";
 import { Testimonials } from "@/components/sections/testimonials";
 import { LatestNews } from "@/components/sections/latest-news";
 import { CallToAction } from "@/components/sections/call-to-action";
+import { SectionBand } from "@/components/layout/section-band";
 import { ScrollReveal } from "@/components/motion/scroll-reveal";
 import { Button } from "@/components/ui/button";
 import {
@@ -42,7 +44,9 @@ export default function HomePage() {
 
       <Statistics stats={HOME_STATS} />
 
-      <section className="py-20 lg:py-28">
+      <Accreditations />
+
+      <SectionBand tone="paper" size="md">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <SectionHeader
             eyebrow="What we do"
@@ -52,9 +56,9 @@ export default function HomePage() {
           />
           <FeatureCards items={services} />
         </div>
-      </section>
+      </SectionBand>
 
-      <section className="bg-brand-surface py-20 lg:py-28">
+      <SectionBand tone="paper-2" size="lg">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <SectionHeader
             eyebrow="Industries"
@@ -64,9 +68,9 @@ export default function HomePage() {
           />
           <IndustryCards items={INDUSTRIES} />
         </div>
-      </section>
+      </SectionBand>
 
-      <section className="py-20 lg:py-28">
+      <SectionBand tone="paper" size="md">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mb-12 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
             <SectionHeader
@@ -107,9 +111,9 @@ export default function HomePage() {
             ]}
           />
         </div>
-      </section>
+      </SectionBand>
 
-      <section className="bg-brand-black py-20 text-white lg:py-28">
+      <SectionBand tone="ink" size="xl">
         <div className="mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-2 lg:items-center lg:px-8">
           <ScrollReveal>
             <SectionHeader
@@ -124,7 +128,7 @@ export default function HomePage() {
                   key={point}
                   className="flex gap-3 text-sm leading-relaxed text-white/75"
                 >
-                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-yellow" />
+                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-white/35" />
                   {point}
                 </li>
               ))}
@@ -134,7 +138,7 @@ export default function HomePage() {
             </Button>
           </ScrollReveal>
           <ScrollReveal delay={0.1}>
-            <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem]">
+            <div className="relative aspect-[4/5] overflow-hidden rounded-2xl">
               <Image
                 src={IMAGES.group}
                 alt="McBurney Transport Group team and fleet"
@@ -145,9 +149,9 @@ export default function HomePage() {
             </div>
           </ScrollReveal>
         </div>
-      </section>
+      </SectionBand>
 
-      <section className="py-20 lg:py-28">
+      <SectionBand tone="paper-2" size="md">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <SectionHeader
             eyebrow="Case studies"
@@ -157,9 +161,9 @@ export default function HomePage() {
           />
           <CaseStudies items={CASE_STUDIES} />
         </div>
-      </section>
+      </SectionBand>
 
-      <section className="bg-brand-surface py-20 lg:py-28">
+      <SectionBand tone="paper" size="lg">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <SectionHeader
             eyebrow="Testimonials"
@@ -169,20 +173,19 @@ export default function HomePage() {
           />
           <Testimonials items={TESTIMONIALS} />
         </div>
-      </section>
+      </SectionBand>
 
-      <section className="py-20 lg:py-28">
+      <SectionBand tone="paper-2" size="md">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mb-12 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
-            <SectionHeader
-              eyebrow="News"
-              title="Latest from McBurney"
-              description="Updates on fleet investment, technology and network expansion across the group."
-            />
-          </div>
+          <SectionHeader
+            eyebrow="News"
+            title="Latest from McBurney"
+            description="Updates on fleet investment, technology and network expansion across the group."
+            className="mb-12"
+          />
           <LatestNews items={LATEST_NEWS} />
         </div>
-      </section>
+      </SectionBand>
 
       <CallToAction
         title="Let's move your business forward"

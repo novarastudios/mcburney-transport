@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { DM_Sans, Syne } from "next/font/google";
+import { Archivo, Inter } from "next/font/google";
 import { SiteShell } from "@/components/layout/site-shell";
 import { SITE } from "@/lib/constants";
 import { createPageMetadata } from "@/lib/seo/metadata";
@@ -10,13 +10,14 @@ import {
 } from "@/lib/seo/schema";
 import "./globals.css";
 
-const display = Syne({
+const display = Archivo({
   variable: "--font-display",
   subsets: ["latin"],
+  weight: ["400", "600", "700", "800"],
   display: "swap",
 });
 
-const body = DM_Sans({
+const body = Inter({
   variable: "--font-body",
   subsets: ["latin"],
   display: "swap",
