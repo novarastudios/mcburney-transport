@@ -1,0 +1,67 @@
+@import "tailwindcss";
+
+:root {
+  --background: #fafafa;
+  --foreground: #111111;
+  --brand-yellow: #ffc700;
+  --brand-black: #0a0a0a;
+  --brand-charcoal: #171717;
+  --brand-muted: #5c5c5c;
+  --brand-surface: #f4f4f5;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-brand-yellow: var(--brand-yellow);
+  --color-brand-black: var(--brand-black);
+  --color-brand-charcoal: var(--brand-charcoal);
+  --color-brand-muted: var(--brand-muted);
+  --color-brand-surface: var(--brand-surface);
+  --font-sans: var(--font-body);
+  --font-display: var(--font-display);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-body), system-ui, sans-serif;
+}
+
+.font-display {
+  font-family: var(--font-display), system-ui, sans-serif;
+}
+
+@keyframes accordion-down {
+  from {
+    height: 0;
+  }
+  to {
+    height: var(--radix-accordion-content-height);
+  }
+}
+
+@keyframes accordion-up {
+  from {
+    height: var(--radix-accordion-content-height);
+  }
+  to {
+    height: 0;
+  }
+}
+
+.animate-accordion-down {
+  animation: accordion-down 0.2s ease-out;
+}
+
+.animate-accordion-up {
+  animation: accordion-up 0.2s ease-out;
+}
