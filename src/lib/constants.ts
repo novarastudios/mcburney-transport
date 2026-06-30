@@ -12,8 +12,7 @@ export const SITE = {
   founder: "Norman McBurney OBE",
 } as const;
 
-export const CUSTOMER_LOGIN_URL =
-  "https://mcburneycomms.com/web/sysloginpage";
+export const CUSTOMER_LOGIN_URL = "/customer-login";
 
 export const OFFICES = [
   {

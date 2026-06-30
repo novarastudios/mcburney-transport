@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Archivo, Inter } from "next/font/google";
-import { SiteShell } from "@/components/layout/site-shell";
 import { SITE } from "@/lib/constants";
 import { createPageMetadata } from "@/lib/seo/metadata";
 import {
@@ -43,7 +42,7 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: jsonLd(schema) }}
         />
-        <SiteShell>{children}</SiteShell>
+        {children}
       </body>
     </html>
   );

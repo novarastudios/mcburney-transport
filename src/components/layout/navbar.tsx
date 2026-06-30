@@ -40,12 +40,18 @@ export function Navbar() {
     return () => window.removeEventListener("keydown", onKeyDown);
   }, []);
 
+  const isPolicyPage =
+    pathname === "/privacy" ||
+    pathname === "/cookies" ||
+    pathname === "/gender-pay-gap" ||
+    pathname === "/rha-conditions-of-carriage";
+
   return (
     <>
       <header
         className={cn(
           "fixed inset-x-0 top-0 z-50 transition-all duration-300",
-          scrolled
+          scrolled || isPolicyPage
             ? "border-b border-white/10 bg-brand-black/90 backdrop-blur-xl"
             : "bg-transparent",
         )}
@@ -103,14 +109,12 @@ export function Navbar() {
             >
               <Search className="h-5 w-5" />
             </button>
-            <a
+            <Link
               href={CUSTOMER_LOGIN_URL}
-              target="_blank"
-              rel="noopener noreferrer"
               className="hidden rounded-full px-4 py-2 text-[15px] text-white/80 transition-colors hover:bg-white/10 hover:text-white xl:inline-flex"
             >
               Customer Login
-            </a>
+            </Link>
             <Button asChild className="hidden text-[15px] sm:inline-flex" size="default">
               <Link href="/quote">Get a Quote</Link>
             </Button>
@@ -151,14 +155,12 @@ export function Navbar() {
                   ) : null}
                 </div>
               ))}
-              <a
+              <Link
                 href={CUSTOMER_LOGIN_URL}
-                target="_blank"
-                rel="noopener noreferrer"
                 className="block rounded-xl px-4 py-3 text-lg font-medium text-white"
               >
                 Customer Login
-              </a>
+              </Link>
             </nav>
             <div className="mt-6 space-y-3 border-t border-white/10 pt-6">
               {OFFICES.map((office) => (

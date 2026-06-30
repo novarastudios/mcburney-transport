@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { SITE } from "@/lib/constants";
+import { SITE_IMAGES } from "@/lib/content/images";
 
 type PageMetadataOptions = {
   title: string;
@@ -13,7 +14,7 @@ export function createPageMetadata({
   title,
   description,
   path,
-  image = "/images/mcburney-logo.png",
+  image = SITE_IMAGES.ogDefault,
   noIndex = false,
 }: PageMetadataOptions): Metadata {
   const url = `${SITE.url}${path}`;

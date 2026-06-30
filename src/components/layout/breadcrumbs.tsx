@@ -1,15 +1,26 @@
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 type BreadcrumbItem = {
   name: string;
   path: string;
 };
 
-export function Breadcrumbs({ items }: { items: BreadcrumbItem[] }) {
+type BreadcrumbsProps = {
+  items: BreadcrumbItem[];
+  clearNav?: boolean;
+};
+
+export function Breadcrumbs({ items, clearNav = false }: BreadcrumbsProps) {
   return (
-    <nav aria-label="Breadcrumb" className="border-b border-[color:var(--hairline)] bg-paper-2">
-      <ol className="site-container flex flex-wrap items-center gap-2 py-4 text-sm text-brand-muted">
+    <nav
+      aria-label="Breadcrumb"
+      className={cn(
+        "border-b border-[color:var(--hairline)] bg-paper-2",
+        clearNav && "pt-20 lg:pt-24",
+      )}
+    >      <ol className="site-container flex flex-wrap items-center gap-2 py-4 text-sm text-brand-muted">
         {items.map((item, index) => {
           const isLast = index === items.length - 1;
           return (

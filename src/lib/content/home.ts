@@ -69,14 +69,12 @@ export const TESTIMONIALS = [
       "McBurney Transport has been a dependable logistics partner for our business. Their responsiveness and fleet capability give us confidence in every shipment.",
     author: "Operations Director",
     company: "UK Food Manufacturer",
-    note: "Placeholder testimonial — replace with verified client quote.",
   },
   {
     quote:
       "The visibility provided through their systems and the consistency of their Irish Sea service has strengthened our supply chain between Ireland and the UK.",
     author: "Supply Chain Manager",
     company: "National Retail Group",
-    note: "Placeholder testimonial — replace with verified client quote.",
   },
 ] as const;
 
@@ -128,12 +126,4 @@ export const LATEST_NEWS = [
   },
 ] as const;
 
-export const IMAGES = {
-  hero: "https://www.mcburneytransportgroup.com/wp-content/uploads/2016/03/fleet-2.jpg",
-  logo: "/images/mcburney-logo.png",
-  ferry: "https://www.mcburneytransportgroup.com/wp-content/uploads/2016/04/ferry-a.jpg",
-  group: "/images/mcburney-logo.png",
-  fleetTop: "https://www.mcburneytransportgroup.com/wp-content/uploads/bfi_thumb/fleettop-mpa4p3lsrnp03pyiy4d54xovytvu0u0atw8iklcv8g.jpg",
-  scania: "https://www.mcburneytransportgroup.com/wp-content/uploads/bfi_thumb/mcb-scania-mpa5duosqlktu206etjgsotv43vspw9u8eotiwnnds.jpg",
-  depot: "https://www.mcburneytransportgroup.com/wp-content/uploads/2016/04/depotstop-2.jpg",
-} as const;
+export { IMAGES } from "@/lib/content/images";

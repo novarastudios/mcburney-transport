@@ -1,4 +1,5 @@
 import { OFFICES, SITE } from "@/lib/constants";
+import { SITE_IMAGES } from "@/lib/content/images";
 
 export function organizationSchema() {
   return {
@@ -25,7 +26,7 @@ export function localBusinessSchema() {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     name: SITE.name,
-    image: `${SITE.url}/wp-content/uploads/2016/03/fleet-2.jpg`,
+    image: `${SITE.url}${SITE_IMAGES.ogDefault}`,
     url: SITE.url,
     telephone: OFFICES[0].phone,
     email: SITE.email,

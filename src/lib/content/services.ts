@@ -21,8 +21,7 @@ export const SERVICES: ServiceContent[] = [
       "Dry, ambient and tailored road haulage with one of Ireland's largest independently owned fleets.",
     overview:
       "McBurney Transport provides all types of transportation — dry, ambient and temperature controlled — with services fully tailored to each customer's requirements. Our fleet travels over 450,000 miles every week, making a delivery on average every few minutes across the UK and Ireland.",
-    image:
-      "https://www.mcburneytransportgroup.com/wp-content/uploads/bfi_thumb/what-we-do-road-mpa54ue6vzoc0vt2ic4d7qzutej4tdzhcy2ux5ou50.jpg",
+    image: "/images/content/service-road.jpg",
     problems: [
       "Inconsistent delivery performance affecting retail and manufacturing schedules.",
       "Limited fleet capacity during peak demand periods.",
@@ -89,8 +88,7 @@ export const SERVICES: ServiceContent[] = [
       "End-to-end temperature-controlled transport and warehousing through McBurney Refrigeration Ltd.",
     overview:
       "McBurney Refrigeration Ltd was established to meet the growing demand for chilled and frozen product haulage. Strengthened by a Liverpool acquisition adding 30,000 pallet cold storage on a 12-acre site, the company delivers a complete temperature-controlled package across the UK and Ireland from depots in Liverpool and Dublin.",
-    image:
-      "https://www.mcburneytransportgroup.com/wp-content/uploads/bfi_thumb/what-we-do-temp-mpa54z3du5urmxm8qw5i27t5sbvyvvi51lcabjhv9w.jpg",
+    image: "/images/content/service-temp.jpg",
     problems: [
       "Cold chain breaks risking product quality and compliance.",
       "Limited refrigerated capacity for high-volume food and drink supply chains.",
@@ -157,8 +155,7 @@ export const SERVICES: ServiceContent[] = [
       "Comprehensive warehousing, groupage and distribution through Bondelivery and group depots.",
     overview:
       "Bondelivery has been an integral part of the McBurney Transport Group for 25 years, providing groupage, distribution and warehousing throughout Ireland. With 30,000 sq m of warehousing at Nutts Corner, a fleet of 80 vehicles and an extensive depot network with UK and Irish partners, Bondelivery delivers bespoke, cost-effective and secure distribution and storage solutions.",
-    image:
-      "https://www.mcburneytransportgroup.com/wp-content/uploads/bfi_thumb/what-we-do-warehouse-mpa55e4svifcsp0eb2nj640jahtub15ufns1zyvkic.jpg",
+    image: "/images/content/service-warehouse.jpg",
     problems: [
       "Need for flexible storage without long-term fixed overhead.",
       "Complex last-mile distribution across Ireland and the UK.",
@@ -225,8 +222,7 @@ export const SERVICES: ServiceContent[] = [
       "Over 114,000 loads shipped across the Irish Sea every year — a cornerstone of group operations.",
     overview:
       "The McBurney Transport Group's strategy has established the business as a major Irish Sea logistics provider. With depots at Cairnryan, Larne, Heysham and Liverpool among others, we connect producers and distributors across the UK and Ireland through high-volume, reliable ferry logistics.",
-    image:
-      "https://www.mcburneytransportgroup.com/wp-content/uploads/bfi_thumb/ferry-b-qx8jsc1z2cm8k79mmgw48wf13ogced3620stxeop78.jpg",
+    image: "/images/content/service-ferry.jpg",
     problems: [
       "Unreliable ferry connections disrupting cross-border supply chains.",
       "Complex customs and documentation for UK–Ireland movements.",
@@ -293,8 +289,7 @@ export const SERVICES: ServiceContent[] = [
       "Tailored services that extend our complete transport package for individual business requirements.",
     overview:
       "McBurney Transport's main objective is to provide a complete transport package. Beyond core haulage, shipping and warehousing, our value added services are fully tailored to meet each business's individual requirements — supported by bespoke IT integration, real-time reporting and an in-house programming team.",
-    image:
-      "https://www.mcburneytransportgroup.com/wp-content/uploads/bfi_thumb/mcb-refrigeration02-mpagmlylbk38pgsfeot8au5gih4s4vlukwaf12715g.jpg",
+    image: "/images/content/service-refrigeration.jpg",
     problems: [
       "Standard logistics offerings failing to match unique operational needs.",
       "Poor visibility into transport and warehousing performance.",
