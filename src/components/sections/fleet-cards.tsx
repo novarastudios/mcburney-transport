@@ -8,6 +8,7 @@ type FleetCard = {
   value: string;
   description: string;
   image?: string;
+  imageFit?: "cover" | "contain";
 };
 
 export function FleetCards({ items }: { items: readonly FleetCard[] }) {
@@ -19,7 +20,7 @@ export function FleetCards({ items }: { items: readonly FleetCard[] }) {
             className={cn(
               "group grain overflow-hidden rounded-2xl border border-[color:var(--hairline-dark)] bg-ink text-white",
               "transition-[box-shadow,border-color] duration-300",
-              "hover:border-mcb-yellow/25 hover:shadow-[var(--shadow-warm)]",
+              "hover:border-mcb-cyan/25 hover:shadow-[var(--shadow-warm)]",
             )}
           >
             {item.image ? (
@@ -28,14 +29,18 @@ export function FleetCards({ items }: { items: readonly FleetCard[] }) {
                   src={item.image}
                   alt={item.title}
                   fill
-                  className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.04]"
+                  className={cn(
+                    item.imageFit === "contain"
+                      ? "object-contain p-8"
+                      : "object-cover transition-transform duration-500 ease-out group-hover:scale-[1.04]",
+                  )}
                   sizes="(max-width: 1024px) 100vw, 33vw"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/30 to-transparent" />
               </div>
             ) : null}
             <div className="relative p-6 lg:p-8">
-              <p className="font-display text-5xl font-bold leading-none text-mcb-yellow">
+              <p className="font-display text-5xl font-bold leading-none text-mcb-cyan">
                 <NumberTicker value={item.value} />
               </p>
               <h3 className="mt-3 font-display text-xl font-bold">{item.title}</h3>

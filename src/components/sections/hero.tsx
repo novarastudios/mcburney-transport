@@ -23,16 +23,10 @@ type HeroProps = {
   secondaryCta?: { label: string; href: string };
   image?: string;
   imageAlt?: string;
+  imageFit?: "cover" | "contain";
   dark?: boolean;
   compact?: boolean;
 };
-
-const HERO_STATS = [
-  "60 Years",
-  "450,000 Miles/Week",
-  "8 Depots",
-  "114,000 Irish Sea Loads",
-] as const;
 
 function HeroLineReveal({
   children,
@@ -67,28 +61,6 @@ function HeroLineReveal({
   );
 }
 
-function HeroStatStrip() {
-  return (
-    <div className="absolute inset-x-0 bottom-0 z-20 border-t border-[color:var(--hairline-dark)] bg-ink/90 backdrop-blur-sm">
-      <div className="mx-auto grid max-w-7xl grid-cols-2 gap-y-3 px-6 py-4 sm:grid-cols-4 lg:px-8">
-        {HERO_STATS.map((stat, index) => (
-          <div
-            key={stat}
-            className={cn(
-              "flex items-center",
-              index > 0 && "sm:border-l sm:border-[color:var(--hairline-dark)] sm:pl-4 lg:pl-6",
-            )}
-          >
-            <span className="text-[10px] font-medium uppercase tracking-[0.2em] text-white/70 tabular sm:text-xs">
-              {stat}
-            </span>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
-
 export function Hero({
   eyebrow,
   title,
@@ -97,6 +69,7 @@ export function Hero({
   secondaryCta,
   image,
   imageAlt = "",
+  imageFit = "cover",
   dark = true,
   compact = false,
 }: HeroProps) {
@@ -111,8 +84,6 @@ export function Hero({
   const imageScale = useTransform(scrollYProgress, [0, 1], [1, 1.1]);
   const imageY = useTransform(scrollYProgress, [0, 1], [0, 100]);
 
-  const showStatStrip = !compact && dark && Boolean(image);
-
   return (
     <section
       ref={sectionRef}
@@ -120,7 +91,6 @@ export function Hero({
         "relative overflow-hidden text-white",
         dark ? "bg-ink" : "bg-paper text-foreground",
         compact ? "min-h-[52vh] py-20 lg:min-h-[58vh] lg:py-24" : "min-h-[92vh]",
-        image && dark && "grain",
       )}
     >
       {image ? (
@@ -132,7 +102,9 @@ export function Hero({
                 alt={imageAlt}
                 fill
                 priority
-                className="object-cover"
+                className={cn(
+                  imageFit === "contain" ? "object-contain p-10" : "object-cover",
+                )}
                 sizes="100vw"
               />
             ) : (
@@ -145,24 +117,26 @@ export function Hero({
                   alt={imageAlt}
                   fill
                   priority
-                  className="object-cover"
+                  className={cn(
+                    imageFit === "contain" ? "object-contain p-10" : "object-cover",
+                  )}
                   sizes="100vw"
                 />
               </motion.div>
             )}
           </div>
-          <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/85 to-ink/25" />
-          <div className="absolute inset-0 bg-gradient-to-r from-ink/90 via-ink/50 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/60 to-ink/15" />
+          <div className="absolute inset-0 bg-gradient-to-r from-ink/80 via-ink/40 to-transparent" />
         </>
       ) : (
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(245,179,1,0.14),transparent_45%),radial-gradient(circle_at_bottom_left,rgba(255,255,255,0.04),transparent_40%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(227,30,36,0.12),transparent_45%),radial-gradient(circle_at_bottom_left,rgba(0,168,198,0.08),transparent_40%)]" />
       )}
 
       <div
         className={cn(
-          "relative z-10 mx-auto flex w-full max-w-7xl flex-col justify-end px-6 lg:px-8",
-          compact ? "pt-28" : "min-h-[92vh] pt-32",
-          showStatStrip ? "pb-28 lg:pb-32" : "pb-16 lg:pb-20",
+          "relative z-10 site-container flex w-full flex-col justify-end pb-16 pt-32 lg:pb-20",
+          !compact && "min-h-[92vh]",
+          compact && "min-h-[52vh] pt-28 lg:min-h-[58vh]",
         )}
       >
         <div className="max-w-4xl">
@@ -171,7 +145,7 @@ export function Hero({
               initial={reducedMotion ? false : { opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: "easeOut" }}
-              className="mb-5 text-xs font-medium uppercase tracking-[0.22em] text-mcb-yellow"
+              className="mb-5 text-xs font-medium uppercase tracking-[0.22em] text-mcb-cyan"
             >
               {eyebrow}
             </motion.p>
@@ -219,8 +193,6 @@ export function Hero({
           )}
         </div>
       </div>
-
-      {showStatStrip ? <HeroStatStrip /> : null}
     </section>
   );
 }

@@ -9,7 +9,7 @@ type BreadcrumbItem = {
 export function Breadcrumbs({ items }: { items: BreadcrumbItem[] }) {
   return (
     <nav aria-label="Breadcrumb" className="border-b border-[color:var(--hairline)] bg-paper-2">
-      <ol className="mx-auto flex max-w-7xl flex-wrap items-center gap-2 px-6 py-4 text-sm text-brand-muted lg:px-8">
+      <ol className="site-container flex flex-wrap items-center gap-2 py-4 text-sm text-brand-muted">
         {items.map((item, index) => {
           const isLast = index === items.length - 1;
           return (

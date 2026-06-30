@@ -26,8 +26,8 @@ export function SectionBand({
   className,
 }: SectionBandProps) {
   return (
-    <section className={cn(toneClasses[tone], sizeClasses[size], className)}>
-      {children}
+    <section className={cn(toneClasses[tone], sizeClasses[size], "relative isolate z-0", className)}>
+      <div className="site-container">{children}</div>
     </section>
   );
 }

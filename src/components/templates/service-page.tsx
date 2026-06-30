@@ -52,7 +52,7 @@ export function ServicePageTemplate({ service }: { service: ServiceContent }) {
       <Breadcrumbs items={breadcrumbs} />
 
       <SectionBand tone="paper" size="lg">
-        <div className="mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-2 lg:px-8">
+        <div className="grid gap-12 lg:grid-cols-2">
           <ScrollReveal>
             <SectionHeader
               eyebrow="Overview"
@@ -75,7 +75,6 @@ export function ServicePageTemplate({ service }: { service: ServiceContent }) {
       </SectionBand>
 
       <SectionBand tone="paper-2" size="lg">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid gap-12 lg:grid-cols-2">
             <ScrollReveal>
               <SectionHeader
@@ -108,11 +107,9 @@ export function ServicePageTemplate({ service }: { service: ServiceContent }) {
               </ul>
             </ScrollReveal>
           </div>
-        </div>
       </SectionBand>
 
       <SectionBand tone="paper" size="md">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <SectionHeader
             eyebrow="Process"
             title="How we work with you"
@@ -136,20 +133,19 @@ export function ServicePageTemplate({ service }: { service: ServiceContent }) {
               </ScrollReveal>
             ))}
           </div>
-        </div>
       </SectionBand>
 
       <StatisticsDark stats={service.stats} />
 
       <SectionBand tone="paper-2" size="lg">
-        <div className="mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-[1fr_1.2fr] lg:px-8">
+          <div className="grid gap-12 lg:grid-cols-[1fr_1.2fr]">
           <SectionHeader
             eyebrow="FAQ"
             title="Frequently asked questions"
             description={`Answers about ${service.title.toLowerCase()} from McBurney Transport Group.`}
           />
           <FAQs items={service.faqs} />
-        </div>
+          </div>
       </SectionBand>
 
       <CallToAction

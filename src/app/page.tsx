@@ -42,12 +42,11 @@ export default function HomePage() {
         secondaryCta={{ label: "Request a Quote", href: "/quote" }}
       />
 
+      <Accreditations variant="dark" />
+
       <Statistics stats={HOME_STATS} />
 
-      <Accreditations />
-
       <SectionBand tone="paper" size="md">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <SectionHeader
             eyebrow="What we do"
             title="A complete transport package"
@@ -55,11 +54,9 @@ export default function HomePage() {
             className="mb-12"
           />
           <FeatureCards items={services} />
-        </div>
       </SectionBand>
 
       <SectionBand tone="paper-2" size="lg">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <SectionHeader
             eyebrow="Industries"
             title="Trusted across sectors"
@@ -67,11 +64,9 @@ export default function HomePage() {
             className="mb-12"
           />
           <IndustryCards items={INDUSTRIES} />
-        </div>
       </SectionBand>
 
       <SectionBand tone="paper" size="md">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mb-12 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
             <SectionHeader
               eyebrow="Fleet"
@@ -107,14 +102,14 @@ export default function HomePage() {
                 description:
                   "One of the highest fleet investment levels of any transport company in Ireland.",
                 image: IMAGES.group,
+                imageFit: "contain",
               },
             ]}
           />
-        </div>
       </SectionBand>
 
       <SectionBand tone="ink" size="xl">
-        <div className="mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-2 lg:items-center lg:px-8">
+        <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
           <ScrollReveal>
             <SectionHeader
               eyebrow="Why McBurney"
@@ -138,12 +133,12 @@ export default function HomePage() {
             </Button>
           </ScrollReveal>
           <ScrollReveal delay={0.1}>
-            <div className="relative aspect-[4/5] overflow-hidden rounded-2xl">
+            <div className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-ink">
               <Image
                 src={IMAGES.group}
-                alt="McBurney Transport Group team and fleet"
+                alt="McBurney Transport Group"
                 fill
-                className="object-cover"
+                className="object-contain p-8"
                 sizes="(max-width: 1024px) 100vw, 50vw"
               />
             </div>
@@ -152,7 +147,6 @@ export default function HomePage() {
       </SectionBand>
 
       <SectionBand tone="paper-2" size="md">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <SectionHeader
             eyebrow="Case studies"
             title="Proven partnerships"
@@ -160,11 +154,9 @@ export default function HomePage() {
             className="mb-12"
           />
           <CaseStudies items={CASE_STUDIES} />
-        </div>
       </SectionBand>
 
       <SectionBand tone="paper" size="lg">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <SectionHeader
             eyebrow="Testimonials"
             title="What our customers say"
@@ -172,11 +164,9 @@ export default function HomePage() {
             className="mb-12"
           />
           <Testimonials items={TESTIMONIALS} />
-        </div>
       </SectionBand>
 
       <SectionBand tone="paper-2" size="md">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <SectionHeader
             eyebrow="News"
             title="Latest from McBurney"
@@ -184,7 +174,6 @@ export default function HomePage() {
             className="mb-12"
           />
           <LatestNews items={LATEST_NEWS} />
-        </div>
       </SectionBand>
 
       <CallToAction

@@ -56,7 +56,8 @@ export default function OurCompaniesPage() {
         title="Three companies, one complete logistics solution"
         description="Through internal growth and strategic acquisitions, the McBurney Transport Group provides the total transport and logistics solution our customers need."
         image={IMAGES.group}
-        imageAlt="McBurney Transport Group companies"
+        imageAlt="McBurney Transport Group"
+        imageFit="contain"
       />
       <Breadcrumbs items={breadcrumbs} />
       <section className="py-20 lg:py-28">

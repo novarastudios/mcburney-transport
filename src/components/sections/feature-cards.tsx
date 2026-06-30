@@ -22,7 +22,7 @@ export function FeatureCards({ items }: { items: readonly FeatureCard[] }) {
               "group relative flex h-full flex-col overflow-hidden rounded-2xl",
               "border border-[color:var(--hairline)] bg-white",
               "transition-[box-shadow,border-color] duration-300",
-              "hover:border-mcb-yellow/30 hover:shadow-[var(--shadow-warm)]",
+              "hover:border-mcb-red/30 hover:shadow-[var(--shadow-warm)]",
             )}
           >
             {item.image ? (
@@ -43,7 +43,7 @@ export function FeatureCards({ items }: { items: readonly FeatureCard[] }) {
                 </h3>
                 <ArrowUpRight
                   aria-hidden
-                  className="mt-0.5 h-5 w-5 shrink-0 text-brand-muted transition-all duration-300 group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:text-mcb-amber"
+                  className="mt-0.5 h-5 w-5 shrink-0 text-brand-muted transition-all duration-300 group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:text-mcb-red"
                 />
               </div>
               <p className="mt-3 flex-1 text-sm leading-relaxed text-brand-muted">

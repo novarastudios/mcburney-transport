@@ -17,7 +17,7 @@ export function CaseStudies({ items }: { items: readonly CaseStudy[] }) {
         <ScrollReveal key={item.title} delay={index * 0.06}>
           <Link
             href={item.href}
-            className="group flex h-full flex-col rounded-3xl border border-brand-black/10 bg-brand-surface p-8 transition-all hover:border-brand-yellow/30 hover:shadow-lg"
+            className="group flex h-full flex-col rounded-3xl border border-brand-black/10 bg-brand-surface p-8 transition-all hover:border-mcb-red/30 hover:shadow-lg"
           >
             <Badge>{item.tag}</Badge>
             <h3 className="mt-4 font-display text-xl font-semibold text-brand-black">

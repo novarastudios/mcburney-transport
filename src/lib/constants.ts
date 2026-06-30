@@ -12,6 +12,9 @@ export const SITE = {
   founder: "Norman McBurney OBE",
 } as const;
 
+export const CUSTOMER_LOGIN_URL =
+  "https://mcburneycomms.com/web/sysloginpage";
+
 export const OFFICES = [
   {
     city: "Ballymena",
@@ -138,22 +141,3 @@ export const FOOTER_LINKS = {
     { label: "Subcontractors", href: "/subcontractors" },
   ],
 } as const;
-
-export const SEARCH_PAGES: { label: string; href: string; group: string }[] = [
-  { label: "Road Haulage", href: "/services/road-haulage", group: "Services" },
-  { label: "Temperature Controlled", href: "/services/temperature-controlled", group: "Services" },
-  { label: "Warehousing & Distribution", href: "/services/warehousing-distribution", group: "Services" },
-  { label: "Irish Sea Shipping", href: "/services/irish-sea-shipping", group: "Services" },
-  { label: "Value Added Services", href: "/services/value-added", group: "Services" },
-  { label: "Services Overview", href: "/services", group: "Services" },
-  { label: "Our Companies", href: "/about/our-companies", group: "Company" },
-  { label: "History", href: "/about/history", group: "Company" },
-  { label: "Why Choose Us", href: "/why-choose-us", group: "Company" },
-  { label: "Fleet", href: "/fleet", group: "Company" },
-  { label: "Depots", href: "/depots", group: "Company" },
-  { label: "Technology", href: "/technology", group: "Company" },
-  { label: "Careers", href: "/careers", group: "Pages" },
-  { label: "Contact", href: "/contact", group: "Pages" },
-  { label: "Request a Quote", href: "/quote", group: "Pages" },
-  { label: "Subcontractors", href: "/subcontractors", group: "Pages" },
-];

@@ -41,22 +41,8 @@ export default function DepotsPage() {
       />
       <Breadcrumbs items={breadcrumbs} />
 
-      <section className="bg-paper py-16 lg:py-20">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <ScrollReveal>
-            <SectionHeader
-              eyebrow="Network map"
-              title="UK & Ireland depot coverage"
-              description="Eight strategic locations supporting road haulage, Irish Sea shipping, warehousing and distribution."
-              className="mb-10"
-            />
-            <DepotMap />
-          </ScrollReveal>
-        </div>
-      </section>
-
       <section className="py-20 lg:py-28">
-        <div className="mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-2 lg:px-8">
+        <div className="mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-2 lg:items-start lg:px-8">
           <ScrollReveal>
             <SectionHeader
               eyebrow="Locations"
@@ -80,15 +66,7 @@ export default function DepotsPage() {
             </div>
           </ScrollReveal>
           <ScrollReveal delay={0.1}>
-            <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-[color:var(--hairline)]">
-              <Image
-                src="https://www.mcburneytransportgroup.com/wp-content/uploads/bfi_thumb/depotsmap-mpbef2rakcwbwe5l4veh7rwa36z8j7bkxmmrovou30.jpg"
-                alt="McBurney Transport depot map reference"
-                fill
-                className="object-cover"
-                sizes="(max-width: 1024px) 100vw, 50vw"
-              />
-            </div>
+            <DepotMap className="min-h-[36rem] lg:sticky lg:top-28" />
           </ScrollReveal>
         </div>
       </section>

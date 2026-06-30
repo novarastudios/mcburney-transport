@@ -13,7 +13,7 @@ export function createPageMetadata({
   title,
   description,
   path,
-  image = "https://www.mcburneytransportgroup.com/wp-content/uploads/2016/03/fleet-2.jpg",
+  image = "/images/mcburney-logo.png",
   noIndex = false,
 }: PageMetadataOptions): Metadata {
   const url = `${SITE.url}${path}`;

@@ -37,7 +37,8 @@ export default function ServicesPage() {
         title="Transport and logistics tailored to your business"
         description="We offer a wide range of transportation and warehousing options throughout the UK and Ireland — fully tailored to meet each business's individual requirements."
         image={IMAGES.group}
-        imageAlt="McBurney Transport services"
+        imageAlt="McBurney Transport Group"
+        imageFit="contain"
         primaryCta={{ label: "Request a Quote", href: "/quote" }}
       />
       <Breadcrumbs items={breadcrumbs} />

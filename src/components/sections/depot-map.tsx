@@ -5,34 +5,49 @@ import {
   ComposableMap,
   Geographies,
   Geography,
-  Graticule,
   Marker,
 } from "react-simple-maps";
 import { DEPOT_LOCATIONS } from "@/lib/content/depots";
+import { cn } from "@/lib/utils";
 
 const GEO_URL =
   "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json";
 
-export function DepotMap() {
+const LABEL_OFFSETS: Record<string, [number, number]> = {
+  Ballymena: [-8, -18],
+  Larne: [10, -18],
+  "Nutts Corner": [-10, 20],
+  Dublin: [10, -18],
+  Cairnryan: [-10, -18],
+  Penrith: [10, -18],
+  Heysham: [-10, 20],
+  Liverpool: [10, 20],
+};
+
+type DepotMapProps = {
+  className?: string;
+};
+
+export function DepotMap({ className }: DepotMapProps) {
   const [activeDepot, setActiveDepot] = useState<string | null>(null);
 
   return (
-    <div className="relative overflow-hidden rounded-2xl border border-[color:var(--hairline-dark)] bg-ink grain">
+    <div
+      className={cn(
+        "relative overflow-hidden rounded-2xl border border-[color:var(--hairline-dark)] bg-ink grain",
+        className,
+      )}
+    >
       <ComposableMap
         projection="geoAzimuthalEqualArea"
         projectionConfig={{
-          center: [-4.5, 54.8],
-          scale: 1180,
+          center: [-4.2, 53.45],
+          scale: 5200,
         }}
-        width={900}
-        height={520}
-        className="mx-auto h-auto w-full max-w-5xl"
+        width={800}
+        height={720}
+        className="block h-auto w-full"
       >
-        <Graticule
-          stroke="rgba(255,255,255,0.08)"
-          strokeWidth={0.35}
-          step={[2, 2]}
-        />
         <Geographies geography={GEO_URL}>
           {({ geographies }) =>
             geographies
@@ -46,8 +61,8 @@ export function DepotMap() {
                   key={geo.rsmKey}
                   geography={geo}
                   fill="var(--graphite)"
-                  stroke="rgba(255,255,255,0.12)"
-                  strokeWidth={0.6}
+                  stroke="rgba(255,255,255,0.18)"
+                  strokeWidth={0.75}
                   style={{
                     default: { outline: "none" },
                     hover: { outline: "none", fill: "var(--graphite-2)" },
@@ -60,6 +75,8 @@ export function DepotMap() {
 
         {DEPOT_LOCATIONS.map((depot) => {
           const isActive = activeDepot === depot.name;
+          const [labelX, labelY] = LABEL_OFFSETS[depot.name] ?? [10, -18];
+          const labelAnchor = labelX < 0 ? "end" : "start";
 
           return (
             <Marker
@@ -72,36 +89,43 @@ export function DepotMap() {
             >
               <g tabIndex={0} className="cursor-pointer outline-none">
                 <circle
-                  r={isActive ? 7 : 5}
-                  fill="var(--mcb-yellow)"
-                  stroke="var(--ink)"
-                  strokeWidth={1.5}
+                  r={isActive ? 10 : 7}
+                  fill="var(--mcb-red)"
+                  stroke="white"
+                  strokeWidth={2}
                   className="transition-all duration-200"
                 />
-                <circle
-                  r={12}
-                  fill="transparent"
-                  aria-hidden
-                />
-                {isActive ? (
-                  <foreignObject
-                    x={10}
-                    y={-18}
-                    width={160}
-                    height={48}
-                    className="pointer-events-none overflow-visible"
+                <circle r={22} fill="transparent" aria-hidden />
+                <text
+                  x={labelX}
+                  y={labelY}
+                  textAnchor={labelAnchor}
+                  fill="white"
+                  fontSize={13}
+                  fontWeight={700}
+                  stroke="var(--ink)"
+                  strokeWidth={4}
+                  paintOrder="stroke"
+                  style={{ pointerEvents: "none" }}
+                >
+                  {depot.name}
+                </text>
+                {depot.label ? (
+                  <text
+                    x={labelX}
+                    y={labelY + 14}
+                    textAnchor={labelAnchor}
+                    fill="rgba(255,255,255,0.65)"
+                    fontSize={9}
+                    fontWeight={600}
+                    letterSpacing="0.1em"
+                    stroke="var(--ink)"
+                    strokeWidth={3}
+                    paintOrder="stroke"
+                    style={{ pointerEvents: "none" }}
                   >
-                    <div className="rounded-full border border-[color:var(--hairline-dark)] bg-ink/95 px-3 py-1.5 text-center shadow-[var(--shadow-warm)] backdrop-blur-sm">
-                      <p className="text-[10px] font-medium uppercase tracking-[0.16em] text-white">
-                        {depot.name}
-                      </p>
-                      {depot.label ? (
-                        <p className="text-[9px] uppercase tracking-[0.12em] text-white/55">
-                          {depot.label}
-                        </p>
-                      ) : null}
-                    </div>
-                  </foreignObject>
+                    {depot.label.toUpperCase()}
+                  </text>
                 ) : null}
               </g>
             </Marker>
@@ -113,7 +137,7 @@ export function DepotMap() {
         <p className="text-center text-[10px] font-medium uppercase tracking-[0.18em] text-white/55">
           {activeDepot
             ? `${activeDepot}${DEPOT_LOCATIONS.find((d) => d.name === activeDepot)?.label ? ` · ${DEPOT_LOCATIONS.find((d) => d.name === activeDepot)?.label}` : ""}`
-            : "Hover a depot pin to explore the network"}
+            : "Eight depots across the UK & Ireland"}
         </p>
       </div>
     </div>

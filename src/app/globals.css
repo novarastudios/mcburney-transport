@@ -1,28 +1,36 @@
 @import "tailwindcss";
 
 :root {
-  /* Base — warm, not cold */
-  --paper: #f6f5f2;
-  --paper-2: #eeede7;
-  --ink: #0b0b0c;
-  --graphite: #161618;
-  --graphite-2: #202023;
-  --foreground: #14110d;
-  --muted: #59564f;
+  /* Base — clean corporate white */
+  --paper: #ffffff;
+  --paper-2: #f4f7fb;
+  --ink: #002366;
+  --graphite: #001a4d;
+  --graphite-2: #002b80;
+  --foreground: #002366;
+  --muted: #4a5568;
 
-  /* Brand — gold-leaning, used as signal not fill */
-  --mcb-yellow: #f5b301;
-  --mcb-amber: #c8860d;
-  --mcb-yellow-soft: rgba(245, 179, 1, 0.12);
+  /* Brand — McBurney logo palette */
+  --mcb-red: #e31e24;
+  --mcb-red-dark: #9e0b0e;
+  --mcb-cyan: #00a8c6;
+  --mcb-blue: #0056b3;
+  --mcb-navy: #002366;
+  --mcb-red-soft: rgba(227, 30, 36, 0.12);
+
+  /* Legacy aliases — mapped to new brand tokens */
+  --mcb-yellow: var(--mcb-red);
+  --mcb-amber: var(--mcb-red-dark);
+  --mcb-yellow-soft: var(--mcb-red-soft);
 
   /* Lines & depth */
-  --hairline: rgba(20, 17, 13, 0.1);
+  --hairline: rgba(0, 35, 102, 0.1);
   --hairline-dark: rgba(255, 255, 255, 0.12);
-  --shadow-warm: 0 24px 70px -24px rgba(11, 11, 12, 0.4);
+  --shadow-warm: 0 24px 70px -24px rgba(0, 26, 77, 0.35);
 
-  /* Legacy aliases — kept until component migration in later prompts */
+  /* Legacy brand aliases */
   --background: var(--paper);
-  --brand-yellow: var(--mcb-yellow);
+  --brand-yellow: var(--mcb-red);
   --brand-black: var(--ink);
   --brand-charcoal: var(--graphite);
   --brand-muted: var(--muted);
@@ -37,6 +45,11 @@
   --color-ink: var(--ink);
   --color-graphite: var(--graphite);
   --color-graphite-2: var(--graphite-2);
+  --color-mcb-red: var(--mcb-red);
+  --color-mcb-red-dark: var(--mcb-red-dark);
+  --color-mcb-cyan: var(--mcb-cyan);
+  --color-mcb-blue: var(--mcb-blue);
+  --color-mcb-navy: var(--mcb-navy);
   --color-mcb-yellow: var(--mcb-yellow);
   --color-mcb-amber: var(--mcb-amber);
   --color-brand-yellow: var(--brand-yellow);
@@ -74,6 +87,19 @@ body {
 
 .tabular {
   font-variant-numeric: tabular-nums;
+}
+
+.site-container {
+  margin-inline: auto;
+  width: 100%;
+  max-width: 80rem;
+  padding-inline: 1.5rem;
+}
+
+@media (min-width: 1024px) {
+  .site-container {
+    padding-inline: 2rem;
+  }
 }
 
 .grain {

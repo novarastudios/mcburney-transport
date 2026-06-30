@@ -10,7 +10,7 @@ export function IndustryCards({ items }: { items: readonly Industry[] }) {
     <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
       {items.map((item, index) => (
         <ScrollReveal key={item.title} delay={index * 0.05}>
-          <article className="h-full rounded-2xl border border-brand-black/10 bg-brand-surface p-6 transition-colors hover:border-brand-yellow/30">
+          <article className="h-full rounded-2xl border border-brand-black/10 bg-brand-surface p-6 transition-colors hover:border-mcb-cyan/30">
             <h3 className="font-display text-lg font-semibold text-brand-black">
               {item.title}
             </h3>

@@ -1,3 +1,5 @@
+"use client";
+
 import { NumberTicker } from "@/components/motion/number-ticker";
 import { cn } from "@/lib/utils";
 
@@ -7,7 +9,34 @@ type Stat = {
   detail?: string;
 };
 
-function StatItem({
+function isNumericStat(value: string) {
+  return /\d/.test(value);
+}
+
+function TextStatValue({
+  value,
+  dark = false,
+}: {
+  value: string;
+  dark?: boolean;
+}) {
+  const [lead, ...rest] = value.split(" ");
+  const tail = rest.join(" ");
+
+  return (
+    <div
+      className={cn(
+        "font-display text-5xl font-bold leading-[0.92] tracking-tight sm:text-6xl lg:text-[clamp(2.75rem,3.4vw,4.75rem)]",
+        dark ? "text-white" : "text-ink",
+      )}
+    >
+      <span className="block">{lead}</span>
+      {tail ? <span className="block">{tail}</span> : null}
+    </div>
+  );
+}
+
+function StatColumn({
   stat,
   index,
   dark = false,
@@ -19,31 +48,39 @@ function StatItem({
   return (
     <div
       className={cn(
-        "flex min-w-0 flex-1 flex-col justify-center px-6 py-8 lg:px-10 lg:py-10",
+        "flex min-w-0 flex-col px-6 py-10 sm:px-8 lg:min-h-[22rem] lg:px-8 lg:py-12 xl:px-10",
         index > 0 && "border-t lg:border-t-0 lg:border-l",
         dark ? "border-[color:var(--hairline-dark)]" : "border-[color:var(--hairline)]",
       )}
     >
       <p
         className={cn(
-          "text-xs font-medium uppercase tracking-[0.18em]",
+          "max-w-[14rem] text-[10px] font-medium uppercase tracking-[0.2em] sm:text-xs",
           dark ? "text-white/55" : "text-brand-muted",
         )}
       >
         {stat.label}
       </p>
-      <p
-        className={cn(
-          "mt-3 font-display text-6xl font-bold leading-none lg:text-7xl",
-          dark ? "text-mcb-yellow" : "text-ink",
+
+      <div className="mt-8 min-w-0 lg:mt-auto lg:pt-10">
+        {isNumericStat(stat.value) ? (
+          <p
+            className={cn(
+              "min-w-0 font-display text-[clamp(2.5rem,4.5vw,4.25rem)] font-bold leading-none tracking-tight xl:text-[clamp(2.75rem,3.2vw,4.5rem)]",
+              dark ? "text-mcb-cyan" : "text-ink",
+            )}
+          >
+            <NumberTicker value={stat.value} />
+          </p>
+        ) : (
+          <TextStatValue value={stat.value} dark={dark} />
         )}
-      >
-        <NumberTicker value={stat.value} />
-      </p>
+      </div>
+
       {stat.detail ? (
         <p
           className={cn(
-            "mt-4 max-w-xs text-sm leading-relaxed",
+            "mt-6 max-w-[15rem] text-sm leading-relaxed lg:mt-8",
             dark ? "text-white/60" : "text-brand-muted",
           )}
         >
@@ -54,15 +91,27 @@ function StatItem({
   );
 }
 
+function SpreadStatsGrid({
+  stats,
+  dark = false,
+}: {
+  stats: readonly Stat[];
+  dark?: boolean;
+}) {
+  return (
+    <div className="grid grid-cols-1 lg:grid-cols-4">
+      {stats.map((stat, index) => (
+        <StatColumn key={stat.label} stat={stat} index={index} dark={dark} />
+      ))}
+    </div>
+  );
+}
+
 export function Statistics({ stats }: { stats: readonly Stat[] }) {
   return (
-    <section className="border-y border-[color:var(--hairline)] bg-paper">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="flex flex-col lg:flex-row">
-          {stats.map((stat, index) => (
-            <StatItem key={stat.label} stat={stat} index={index} />
-          ))}
-        </div>
+    <section className="relative isolate z-0 border-b border-[color:var(--hairline)] bg-paper-2">
+      <div className="site-container max-w-none px-0 lg:px-6 xl:px-8">
+        <SpreadStatsGrid stats={stats} />
       </div>
     </section>
   );
@@ -70,14 +119,12 @@ export function Statistics({ stats }: { stats: readonly Stat[] }) {
 
 export function StatisticsDark({ stats }: { stats: readonly Stat[] }) {
   return (
-    <section className="grain bg-ink text-white">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="flex flex-col lg:flex-row">
-          {stats.map((stat, index) => (
-            <StatItem key={stat.label} stat={stat} index={index} dark />
-          ))}
-        </div>
+    <section className="relative isolate z-0 grain bg-ink text-white">
+      <div className="site-container max-w-none px-0 lg:px-6 xl:px-8">
+        <SpreadStatsGrid stats={stats} dark />
       </div>
     </section>
   );
 }
+
+export type { Stat };

@@ -52,7 +52,7 @@ export default function ContactPage() {
                   className="rounded-2xl border border-brand-black/10 bg-brand-surface p-6"
                 >
                   <div className="flex items-start gap-3">
-                    <MapPin className="mt-0.5 h-5 w-5 text-brand-yellow" />
+                    <MapPin className="mt-0.5 h-5 w-5 text-mcb-red" />
                     <div>
                       <p className="font-medium text-brand-black">{office.city}</p>
                       <p className="text-sm text-brand-muted">{office.label}</p>
@@ -71,7 +71,7 @@ export default function ContactPage() {
                 href={`mailto:${SITE.email}`}
                 className="inline-flex items-center gap-2 text-sm font-medium text-brand-black hover:text-brand-muted"
               >
-                <Mail className="h-4 w-4 text-brand-yellow" />
+                <Mail className="h-4 w-4 text-mcb-red" />
                 {SITE.email}
               </a>
             </div>

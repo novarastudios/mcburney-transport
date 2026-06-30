@@ -63,7 +63,7 @@ export default function WhyChooseUsPage() {
             {SOURCE_POINTS.map((point, index) => (
               <ScrollReveal key={point} delay={index * 0.05}>
                 <article className="flex gap-4 rounded-2xl border border-brand-black/10 bg-white p-6">
-                  <CheckCircle2 className="h-6 w-6 shrink-0 text-brand-yellow" />
+                  <CheckCircle2 className="h-6 w-6 shrink-0 text-mcb-red" />
                   <p className="text-sm leading-relaxed text-brand-muted">{point}</p>
                 </article>
               </ScrollReveal>

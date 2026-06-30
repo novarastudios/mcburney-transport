@@ -5,7 +5,7 @@ export const HOME_STATS = [
     detail: "Founded by Norman McBurney OBE with a single lorry.",
   },
   {
-    value: "114,000+",
+    value: "114,000",
     label: "Irish Sea loads annually",
     detail: "High-volume ferry logistics connecting UK and Ireland.",
   },
@@ -130,8 +130,9 @@ export const LATEST_NEWS = [
 
 export const IMAGES = {
   hero: "https://www.mcburneytransportgroup.com/wp-content/uploads/2016/03/fleet-2.jpg",
+  logo: "/images/mcburney-logo.png",
   ferry: "https://www.mcburneytransportgroup.com/wp-content/uploads/2016/04/ferry-a.jpg",
-  group: "https://www.mcburneytransportgroup.com/wp-content/uploads/bfi_thumb/McBurney-2-Col-Group-1-mpa4uvbuda0stuamr0wvr9lrw7ox50e0nkvdlgh85w.jpg",
+  group: "/images/mcburney-logo.png",
   fleetTop: "https://www.mcburneytransportgroup.com/wp-content/uploads/bfi_thumb/fleettop-mpa4p3lsrnp03pyiy4d54xovytvu0u0atw8iklcv8g.jpg",
   scania: "https://www.mcburneytransportgroup.com/wp-content/uploads/bfi_thumb/mcb-scania-mpa5duosqlktu206etjgsotv43vspw9u8eotiwnnds.jpg",
   depot: "https://www.mcburneytransportgroup.com/wp-content/uploads/2016/04/depotstop-2.jpg",
