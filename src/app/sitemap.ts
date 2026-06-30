@@ -15,6 +15,10 @@ const STATIC_ROUTES = [
   "/contact",
   "/quote",
   "/subcontractors",
+  "/privacy",
+  "/cookies",
+  "/gender-pay-gap",
+  "/rha-conditions-of-carriage",
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

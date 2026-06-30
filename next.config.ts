@@ -10,6 +10,15 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  async redirects() {
+    return [
+      {
+        source: "/gpgr",
+        destination: "/gender-pay-gap",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;

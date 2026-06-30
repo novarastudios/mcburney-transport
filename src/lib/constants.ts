@@ -140,4 +140,10 @@ export const FOOTER_LINKS = {
     { label: "Request a Quote", href: "/quote" },
     { label: "Subcontractors", href: "/subcontractors" },
   ],
+  policies: [
+    { label: "Privacy", href: "/privacy" },
+    { label: "Cookies", href: "/cookies" },
+    { label: "Gender Pay Gap", href: "/gender-pay-gap" },
+    { label: "RHA Conditions of Carriage", href: "/rha-conditions-of-carriage" },
+  ],
 } as const;
